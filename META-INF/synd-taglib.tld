@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<taglib>
+   <tlibversion>1.1</tlibversion>
+   <jspversion>2.0</jspversion> 
+   <info>syndication tag library</info>
+   <uri>http://crashingdaily.com/taglib/syndication</uri>
+
+  <tag>
+    <description>
+    Assign a SyndFeed object to the named variable assigned to 'feed'.
+    See 
+    https://rome.dev.java.net/apidocs/0_3/com/sun/syndication/feed/synd/SyndFeedI.html
+    and associated documention.
+    </description>
+    <name>feed</name>
+    <tagclass>com.crashingdaily.syndication.FeedTag</tagclass>
+    <bodycontent>scriptless</bodycontent>
+
+        <attribute>
+            <description>
+            Feed url. Can list more than one URL, separated by whitespace, to get a 
+            merge of all the feeds. Alternatively, list the URLs in the tag body.
+            </description>
+            <name>url</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Name of the exported scoped variable for the SyndFeed assignment.
+            </description>
+            <name>feed</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Time, in milliseconds, to wait for response from remote server.
+        A timeout of zero is interpreted as an infinite timeout. The default
+        timeout is 0.
+            </description>
+            <name>timeout</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Not Implemented
+            </description>
+            <name>proxyAddress</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+             <description>
+            Not Implemented
+            </description>
+           <name>proxyPort</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+  </tag> 
+
+  <tag>
+    <description>
+    Sorts the given feed ascending or decending by given value. 
+    Once sorted, can not unsort.
+    </description>
+    <name>sort</name>
+    <tagclass>com.crashingdaily.syndication.SortTag</tagclass>
+    <bodycontent>scriptless</bodycontent>
+
+        <attribute>
+            <name>feed</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Order for sorting. Accepted values (case insensitive) are
+            ascending, asc, descending, desc 
+            </description>
+            <name>direction</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Feed entry value on which to sort. Currently only "date" is supported.
+            </description>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+  </tag> 
+
+
+</taglib>
+

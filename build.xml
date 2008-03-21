@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="compile" name="crashingsyndication" basedir=".">
+
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <mkdir dir="build"/>
+        <javac srcdir="${src}" 
+               destdir="${dest}" 
+               debug="on" 
+               classpath="${classpath}:." 
+               includes="**/*.java">
+        <!-- compilerarg value="-Xlint"/ -->
+        <classpath>
+           <fileset dir="lib/java/">
+              <include name="*.jar"/>
+           </fileset>
+        </classpath>
+
+        </javac>
+
+        <copy todir="classes">
+          <fileset dir="." >
+            <include name="META-INF/**"/>
+          </fileset>
+        </copy>
+
+        <jar basedir="classes" 
+             destfile="build/syndication-tag.jar"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="classes"/>
+        <delete dir="build"/>
+    </target>
+
+</project>
