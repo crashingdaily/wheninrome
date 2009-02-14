@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
@@ -27,20 +28,23 @@ import com.sun.syndication.io.FeedException;
 
 public class Aggregator {
 
+    private static final Logger logger = Logger.getLogger(Aggregator.class);
+
     protected int timeout = 0;
 
     public Aggregator() {
     
     }
     
-    public SyndFeed merge (String[] feedUrls) throws MalformedURLException, IOException, Exception {
+    public SyndFeed merge (String[] feedUrls) throws MalformedURLException, 
+                IOException, Exception {
         
         if (feedUrls.length == 0) return null;
         if (feedUrls.length == 1) return fetch(feedUrls[0]);
         
         final SyndFeed mergedFeed = new SyndFeedImpl();
         List<SyndEntry> entries = new ArrayList<SyndEntry>();
-        final Map<String, SyndEntry> seenUrls = new HashMap<String, SyndEntry>();
+        final Map<String, SyndEntry> seenUri = new HashMap<String, SyndEntry>();
 
         final StringBuffer tagList = new StringBuffer(feedUrls[0]);
         
@@ -57,11 +61,14 @@ public class Aggregator {
         for (int idx = 0; idx < feedUrls.length; idx++) {
             try {
                 SyndFeed feed = fetch(feedUrls[idx]);
-                mergedFeed.setTitle(mergedFeed.getTitle() + " '" + feed.getTitle() + "'");
+
+                mergedFeed.setTitle(mergedFeed.getTitle() + 
+                        " '" + feed.getTitle() + "'");
+
                 for (SyndEntry entry: (List<SyndEntry>)feed.getEntries()) {
-                    if (! seenUrls.containsKey(entry.getLink())) {
+                    if (! seenUri.containsKey(entry.getUri())) {
                         entries.add(entry);
-                        seenUrls.put(entry.getLink(), entry);
+                        seenUri.put(entry.getUri(), entry);
                     }
                 }
             } catch (FeedException fex) {
@@ -74,7 +81,8 @@ public class Aggregator {
         return mergedFeed;
     }
     
-    public SyndFeed fetch (String url) throws MalformedURLException, IOException, FeedException {
+    public SyndFeed fetch (String url) throws MalformedURLException, 
+                IOException, FeedException {
         
         final SyndFeedInput input = new SyndFeedInput();
         URL feedUrl;
