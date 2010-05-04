@@ -29,11 +29,29 @@ import com.sun.syndication.io.FeedException;
 public class Aggregator {
 
     private static final Logger logger = Logger.getLogger(Aggregator.class);
-
+    
+    private String title;
+    private String description;
+    private String feedType;
+    private String channelLink;
+    private String author;
+    
+    private boolean makeTitle;
     protected int timeout = 0;
 
     public Aggregator() {
+        this(null, null, null, null, null);
+    }
     
+    public Aggregator(String title, String description, String feedType, 
+                      String channelLink, String author) {
+        this.title = title;
+        this.description = description;
+        this.feedType = feedType;
+        this.channelLink = channelLink;
+        this.author = author;
+        
+        makeTitle = (title == null) ? true : false;
     }
     
     public SyndFeed merge (String[] feedUrls) throws MalformedURLException, 
@@ -53,18 +71,21 @@ public class Aggregator {
             tagList.append(feedUrls[argidx]);
         }
 
-        mergedFeed.setTitle("Merged feeds:");
-        mergedFeed.setDescription("Aggregation of feeds: " + tagList);
-        mergedFeed.setFeedType("rss_2.0");
-        mergedFeed.setAuthor("Aggregator");
-
+        mergedFeed.setTitle((title != null) ? title : "Merged feeds:");
+        mergedFeed.setDescription((description != null) ? description : "Aggregation of feeds: " + tagList);
+        mergedFeed.setFeedType((feedType != null) ? feedType : "rss_2.0");
+        mergedFeed.setAuthor((author != null) ? author : "Aggregator");
+        mergedFeed.setLink((channelLink != null) ? channelLink : "");
+        
         for (int idx = 0; idx < feedUrls.length; idx++) {
             try {
                 SyndFeed feed = fetch(feedUrls[idx]);
-
-                mergedFeed.setTitle(mergedFeed.getTitle() + 
-                        " '" + feed.getTitle() + "'");
-
+                
+                if (makeTitle) {
+                    mergedFeed.setTitle(mergedFeed.getTitle() + 
+                            " '" + feed.getTitle() + "'");
+                }
+                
                 for (SyndEntry entry: (List<SyndEntry>)feed.getEntries()) {
                     if (! seenUri.containsKey(entry.getUri())) {
                         entries.add(entry);

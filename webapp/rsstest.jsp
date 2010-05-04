@@ -3,7 +3,9 @@
 <%@ taglib prefix="synd" uri="http://crashingdaily.com/taglib/syndication" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<%--
+multiple urls will be split on space so spaces in url must be encoded
+--%>
 <synd:feed 
     url="http://rss.slashdot.org/slashdot/eqWf"
     feed="merge">
@@ -19,3 +21,4 @@ http://rss.slashdot.org/slashdot/eqWf
    <%-- ${e.description.value}<p> --%> 
 </c:forEach>
 
+ 

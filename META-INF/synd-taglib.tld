@@ -49,6 +49,54 @@
 
         <attribute>
             <description>
+            Title for aggregated feed. Defaults to
+            "Merged feeds:" + titles of of individual feeds.
+            </description>
+            <name>title</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+             Description for aggregated feed.  Defaults to 
+            "Aggregation of feeds: " + list of urls aggregated
+            </description>
+            <name>description</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+             Type of aggregated feed when using xmlout tag, e.g. "rss_2.0". 
+             Values depend on those supported by SyndFeedImpl.
+            </description>
+            <name>feedType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            URL for aggregated feed channel.
+            </description>
+            <name>channelLink</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
+            Author of aggregated feed channel. Defaults to "Aggregator"
+            </description>
+            <name>author</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <description>
             Not Implemented
             </description>
             <name>proxyAddress</name>
@@ -101,6 +149,20 @@
         </attribute>
   </tag> 
 
+  <tag>
+    <description>
+    Dump a feed to XML
+    </description>
+    <name>xmlout</name>
+    <tagclass>com.crashingdaily.syndication.OutputTag</tagclass>
+    <bodycontent>scriptless</bodycontent>
+
+        <attribute>
+            <name>feed</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+  </tag> 
 
 </taglib>
 

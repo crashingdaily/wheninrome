@@ -26,6 +26,12 @@ public class FeedTag extends SimpleTagSupport {
     protected String proxyPort;
     protected int timeout;
     protected int varScope;
+
+    protected String title;
+    protected String description;
+    protected String feedType;
+    protected String channelLink;
+    protected String author;
     
     public FeedTag() {
         super();
@@ -56,14 +62,37 @@ public class FeedTag extends SimpleTagSupport {
         }
     }   
 
+    public void setTitle(String title) throws JspException {
+        this.title = title;
+    }
+
+    public void setDescription(String description) throws JspException {
+        this.description = description;
+    }
+
+    public void setFeedType(String feedType) throws JspException {
+        this.feedType = feedType;
+    }
+
+    public void setChannelLink(String channelLink) throws JspException {
+        this.channelLink = channelLink;
+    }
+
+    public void setAuthor(String author) throws JspException {
+        this.author = author;
+    }
+
+    /* list of urls for feeds */
     public void setUrl(String url) throws JspException {
         this.url = url;
     }
     
+    /* how long to wait for feed to return */
     public void setTimeout(int timeout) throws JspException {
         this.timeout = timeout;
     }
     
+    /* name for handle on a SyndFeed */
     public void setFeed(String feed) throws JspException {
         this.feed = feed;
     }
@@ -78,7 +107,8 @@ public class FeedTag extends SimpleTagSupport {
 
     public SyndFeed getMergedFeed(final String[] args) 
                 throws MalformedURLException, IOException, Exception  {
-        Aggregator agg = new Aggregator();
+        Aggregator agg = new Aggregator(title, description, feedType, 
+                                        channelLink, author);
         agg.setTimeout(timeout);
         SyndFeed mergedFeed = agg.merge(args);
         return mergedFeed;
