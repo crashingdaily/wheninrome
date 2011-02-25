@@ -1,3 +1,3 @@
 #!/bin/bash
 
-java -cp lib/java/jdom-1.0.jar:lib/java/rome-0.9.jar:build/syndication-tag.jar com/crashingdaily/syndication/test/FetchFeeds $*
+java -cp lib/java/log4j-1.2.15.jar:lib/java/jdom-1.0.jar:lib/java/rome-0.9.jar:build/syndication-tag.jar com/crashingdaily/syndication/test/FetchFeeds $*
