@@ -1,6 +1,6 @@
 ###wheninrome###
 
-wheninrome is JSP taglib wrapper on the Rome Atom/RSS syndication tools.
+wheninrome is a JSP taglib wrapper on the Rome Atom/RSS syndication tools.
 
 
 Example JSP file:
