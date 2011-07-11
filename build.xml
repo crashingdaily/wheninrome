@@ -26,7 +26,7 @@
         </copy>
 
         <jar basedir="classes" 
-             destfile="build/syndication-tag.jar"/>
+             destfile="build/wheninrome.jar"/>
     </target>
 
     <target name="clean">

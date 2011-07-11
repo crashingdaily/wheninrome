@@ -4,7 +4,7 @@
    <tlibversion>1.1</tlibversion>
    <jspversion>2.0</jspversion> 
    <info>syndication tag library</info>
-   <uri>http://crashingdaily.com/taglib/syndication</uri>
+   <uri>http://crashingdaily.com/taglib/wheninrome</uri>
 
   <tag>
     <description>
@@ -14,7 +14,7 @@
     and associated documention.
     </description>
     <name>feed</name>
-    <tagclass>com.crashingdaily.syndication.FeedTag</tagclass>
+    <tagclass>com.crashingdaily.wheninrome.FeedTag</tagclass>
     <bodycontent>scriptless</bodycontent>
 
         <attribute>
@@ -120,7 +120,7 @@
     Once sorted, can not unsort.
     </description>
     <name>sort</name>
-    <tagclass>com.crashingdaily.syndication.SortTag</tagclass>
+    <tagclass>com.crashingdaily.wheninrome.SortTag</tagclass>
     <bodycontent>scriptless</bodycontent>
 
         <attribute>
@@ -154,7 +154,7 @@
     Dump a feed to XML
     </description>
     <name>xmlout</name>
-    <tagclass>com.crashingdaily.syndication.OutputTag</tagclass>
+    <tagclass>com.crashingdaily.wheninrome.OutputTag</tagclass>
     <bodycontent>scriptless</bodycontent>
 
         <attribute>

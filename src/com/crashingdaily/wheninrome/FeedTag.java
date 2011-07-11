@@ -1,4 +1,4 @@
-package com.crashingdaily.syndication;
+package com.crashingdaily.wheninrome;
 
 import java.io.StringWriter;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import javax.servlet.ServletContext;
 import javax.servlet.jsp.tagext.JspFragment;
 
-import com.crashingdaily.syndication.Aggregator;
+import com.crashingdaily.wheninrome.Aggregator;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;

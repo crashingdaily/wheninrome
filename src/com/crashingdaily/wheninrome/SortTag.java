@@ -1,8 +1,8 @@
-package com.crashingdaily.syndication;
+package com.crashingdaily.wheninrome;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import com.crashingdaily.syndication.Aggregator;
+import com.crashingdaily.wheninrome.Aggregator;
 import com.sun.syndication.feed.synd.SyndFeed;
 
 

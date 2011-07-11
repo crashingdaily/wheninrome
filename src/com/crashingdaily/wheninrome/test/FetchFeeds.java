@@ -1,6 +1,6 @@
-package com.crashingdaily.syndication.test;
+package com.crashingdaily.wheninrome.test;
 
-import com.crashingdaily.syndication.Aggregator;
+import com.crashingdaily.wheninrome.Aggregator;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;

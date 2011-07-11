@@ -1,4 +1,4 @@
-package com.crashingdaily.syndication;
+package com.crashingdaily.wheninrome;
 
 // derivative of Randy J. Ray's DeliciousMerger2.java
 // http://today.java.net/pub/a/today/2006/02/02/tour-of-rome.html
