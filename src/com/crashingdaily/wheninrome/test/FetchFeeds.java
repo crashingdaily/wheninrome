@@ -19,7 +19,7 @@ public class FetchFeeds {
             
             System.out.println( mergedFeed.getTitle() );
             for ( Object entry: mergedFeed.getEntries() ) {
-                System.out.println( ((SyndEntry)entry).getPublishedDate().toString()  +
+                System.out.println( ((SyndEntry)entry).getPublishedDate()  +
                 " - " + ((SyndEntry)entry).getTitle() +
                 ((SyndEntry)entry).getDescription().getValue() );
             }
