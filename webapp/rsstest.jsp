@@ -1,17 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="synd" uri="http://crashingdaily.com/taglib/syndication" %>
+<%@ taglib prefix="wir" uri="http://crashingdaily.com/taglib/wheninrome" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%--
 multiple urls will be split on space so spaces in url must be encoded
 --%>
-<synd:feed 
+<wir:feed 
     url="http://rss.slashdot.org/slashdot/eqWf"
     feed="merge">
 http://reddit.com/.rss
 http://rss.slashdot.org/slashdot/eqWf
-</synd:feed>
+</wir:feed>
 
 <b>${merge.title}</b><br>
 <hr>
@@ -20,5 +20,3 @@ http://rss.slashdot.org/slashdot/eqWf
     <a href='${e.link}'>${e.title}</a> - ${fdate}<br>
    <%-- ${e.description.value}<p> --%> 
 </c:forEach>
-
- 
